@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" Inherits="_Default" Codebehind="Default.aspx.cs" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -45,7 +45,7 @@
                 <div id="silverlightControlHost">
                     <object data="data:application/x-silverlight-2," type="application/x-silverlight-2"
                          width="525" height="120">
-                        <param name="source" value="slAudioUpload.xap" />
+                        <param name="source" value="ClientBin/slAudioUpload.xap" />
                         <param name="onError" value="onSilverlightError" />
                         <param name="background" value="white" />
                         <param name="minRuntimeVersion" value="4.0.50401.0" />
