@@ -1,0 +1,92 @@
+﻿body
+{
+    font: normal 12px/16px Calibri, Arial, Tahoma, Helvetica, sans-serif;
+    color: #666;
+    background: url(../images/bg-body.jpg) center top repeat-x #fbfbfb;
+}
+
+a
+{
+    color: #2F3080;
+    text-decoration: none;
+}
+a:hover
+{
+    text-decoration: underline;
+}
+
+/*  */
+html, body
+{
+    height: 100%;
+}
+
+.top-content
+{
+    height: 66px;
+    padding: 20px 0 5px 0;
+}
+.logo
+{
+    width: 323px;
+    float: left;
+    padding-left: 15px;
+}
+
+/* Custom container */
+.container
+{
+    margin: 0 auto;
+    max-width: 960px;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+}
+.container > hr
+{
+    margin: 60px 0;
+}
+
+/* Customize the navbar links to be fill the entire space of the .navbar */
+.navbar
+{
+    margin-top: 20px;
+}
+.navbar .navbar-inner
+{
+    padding: 0;
+}
+.navbar .nav
+{
+    margin: 0;
+    display: table;
+    width: 100%;
+}
+.navbar .nav li
+{
+    display: table-cell;
+    width: 1%;
+    float: none;
+}
+.navbar .nav li a
+{
+    font-weight: bold;
+    text-align: center;
+    border-left: 1px solid rgba(255,255,255,.75);
+    border-right: 1px solid rgba(0,0,0,.1);
+}
+.navbar .nav li:first-child a
+{
+    border-left: 0;
+    border-radius: 3px 0 0 3px;
+}
+.navbar .nav li:last-child a
+{
+    border-right: 0;
+    border-radius: 0 3px 3px 0;
+}
+
+.main-content
+{
+    margin-top: 50px;
+}
