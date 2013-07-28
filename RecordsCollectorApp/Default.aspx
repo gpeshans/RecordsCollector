@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" Inherits="_Default" Codebehind="Default.aspx.cs" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" Inherits="_Default" CodeBehind="Default.aspx.cs" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -44,7 +44,7 @@
                     Silverlight Mic Sampler / Looper</h1>
                 <div id="silverlightControlHost">
                     <object data="data:application/x-silverlight-2," type="application/x-silverlight-2"
-                         width="525" height="120">
+                        width="525" height="120">
                         <param name="source" value="ClientBin/slAudioUpload.xap" />
                         <param name="onError" value="onSilverlightError" />
                         <param name="background" value="white" />
@@ -58,7 +58,8 @@
                 </div>
             </div>
             <form id="form1" runat="server">
-            <asp:ListBox ID="ListBox1" runat="server"></asp:ListBox>
+            <%--<asp:ListBox ID="ListBox1" runat="server"></asp:ListBox>--%>
+            <asp:Literal ID="Literal1" runat="server"></asp:Literal>
             </form>
         </div>
     </div>

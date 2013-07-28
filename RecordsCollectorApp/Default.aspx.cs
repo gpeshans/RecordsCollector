@@ -10,7 +10,15 @@ public partial class _Default : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         string[] list = Directory.GetFiles(Server.MapPath("~/Files").ToString());
-        ListBox1.DataSource = list;
-        ListBox1.DataBind();
+        HyperLink link = null;
+
+        foreach (var item in list)
+        {
+            link.NavigateUrl = Server.MapPath(item);
+            Literal1.Controls.Add(link);
+        }
+
+        //ListBox1.DataSource = list;
+        //ListBox1.DataBind();
     }
 }
