@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\..\..\..\..\Downloads\Compressed\DotNetZipLib-Runtime-v1.9\zip-v1.9\Ionic.Zip.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -60,6 +63,7 @@
     <Content Include="css\master.css" />
     <Content Include="css\styles.css" />
     <Content Include="Default.aspx" />
+    <Content Include="Download.aspx" />
     <Content Include="Files\12a5652e-5e9e-462b-b64f-2592f793a7ba.wav" />
     <Content Include="Files\221a9860-e327-487a-9e54-0b730b4d9d2c.wav" />
     <Content Include="Files\31f8156a-bcbc-4a78-a288-fa77a555fcee.wav" />
@@ -108,6 +112,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Download.aspx.cs">
+      <DependentUpon>Download.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Download.aspx.designer.cs">
+      <DependentUpon>Download.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
