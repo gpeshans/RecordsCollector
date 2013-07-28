@@ -11,7 +11,11 @@ namespace RecordsCollectorApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string fileName = Request.QueryString["name"].ToString();
+            Response.ContentType = "application/octet-stream";
+            Response.AddHeader("Content-Disposition", "attachment;filename=" + fileName);
+            Response.TransmitFile(Server.MapPath("~/Files/" + fileName));
+            Response.End();
         }
     }
 }

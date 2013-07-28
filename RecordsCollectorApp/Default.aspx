@@ -58,8 +58,6 @@
                 </div>
             </div>
             <form id="form1" runat="server">
-            <%--<asp:ListBox ID="ListBox1" runat="server"></asp:ListBox>--%>
-            <asp:Literal ID="Literal1" runat="server"></asp:Literal>
             </form>
         </div>
     </div>
