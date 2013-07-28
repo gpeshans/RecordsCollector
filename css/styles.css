@@ -27,3 +27,9 @@ h1{
 li{
     margin-bottom: 5px;
 }
+
+.buttons
+{
+    margin:0 auto;
+    width:800px;
+}
