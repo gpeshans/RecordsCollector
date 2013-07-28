@@ -15,7 +15,7 @@ public partial class _Default : System.Web.UI.Page
         foreach (var item in list)
         {
             string pom = item.Split('/')[item.Split('/').Length - 1];
-            link.NavigateUrl = Server.MapPath("~\\RecordsCollectorApp\\Files\\" + pom);
+            link.NavigateUrl = "~/Files/" + pom;
             Literal1.Controls.Add(link);
         }
 
