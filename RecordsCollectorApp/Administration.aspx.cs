@@ -23,8 +23,8 @@ namespace RecordsCollectorApp
                 link.NavigateUrl = "Download.aspx?name=" + file.Name;
 
                 form1.Controls.Add(link);
-                form1.Controls.Add(new LiteralControl("<br/>"));                
-            }            
+                form1.Controls.Add(new LiteralControl("<br/>"));
+            }
         }
 
         protected void DownloadButton_Click(object sender, EventArgs e)
@@ -34,7 +34,7 @@ namespace RecordsCollectorApp
             foreach (var item in directory.GetFiles())
             {
                 string filePath = Server.MapPath("~/Files/" + item.Name);
-                zip.AddFile(filePath, "files");
+                zip.AddFile(filePath, DateTime.Today.ToShortDateString());
             }
 
             Response.Clear();

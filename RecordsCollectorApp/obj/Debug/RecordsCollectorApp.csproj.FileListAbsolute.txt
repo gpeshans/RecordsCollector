@@ -2,5 +2,5 @@ c:\users\pesanski\documents\visual studio 2010\Projects\RecordsCollectorApp\Reco
 c:\users\pesanski\documents\visual studio 2010\Projects\RecordsCollectorApp\RecordsCollectorApp\bin\RecordsCollectorApp.pdb
 c:\users\pesanski\documents\visual studio 2010\Projects\RecordsCollectorApp\RecordsCollectorApp\obj\Debug\RecordsCollectorApp.dll
 c:\users\pesanski\documents\visual studio 2010\Projects\RecordsCollectorApp\RecordsCollectorApp\obj\Debug\RecordsCollectorApp.pdb
-C:\Users\Pesanski\Documents\Visual Studio 2010\Projects\RecordsCollectorApp\RecordsCollectorApp\bin\Ionic.Zip.dll
 C:\Users\Pesanski\Documents\Visual Studio 2010\Projects\RecordsCollectorApp\RecordsCollectorApp\obj\Debug\RecordsCollectorApp.csprojResolveAssemblyReference.cache
+C:\Users\Pesanski\Documents\Visual Studio 2010\Projects\RecordsCollectorApp\RecordsCollectorApp\bin\Ionic.Zip.Reduced.dll
