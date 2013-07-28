@@ -38,8 +38,13 @@
         <div class="main-content">
             <div id="main">
                 <form id="form1" runat="server">
-                <asp:Button ID="DownloadButton" runat="server" Text="Download" 
-                    onclick="DownloadButton_Click" />
+                <div>
+                    <asp:Button ID="DownloadButton" runat="server" Text="Download" OnClick="DownloadButton_Click" />
+                    <br />
+                    <br />
+                    <asp:Button ID="DeleteAllButton" runat="server" Text="Delete All" 
+                        onclick="DeleteAllButton_Click" />
+                </div>
                 </form>
             </div>
         </div>

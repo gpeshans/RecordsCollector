@@ -30,6 +30,10 @@ namespace RecordsCollectorApp
         protected void DownloadButton_Click(object sender, EventArgs e)
         {
             DirectoryInfo directory = new DirectoryInfo(Server.MapPath("~/Files"));
+            if (directory.GetFiles().Length == 0)
+            {
+                return;
+            }
             ZipFile zip = new ZipFile();
             foreach (var item in directory.GetFiles())
             {
@@ -42,6 +46,19 @@ namespace RecordsCollectorApp
             Response.ContentType = "application/zip";
             zip.Save(Response.OutputStream);
             Response.End();
+        }
+
+        protected void DeleteAllButton_Click(object sender, EventArgs e)
+        {
+            DirectoryInfo directory = new DirectoryInfo(Server.MapPath("~/Files"));
+            foreach (FileInfo file in directory.GetFiles())
+            {
+                string filePath = Server.MapPath("~/Files/" + file.Name);
+                if (File.Exists(filePath))
+                {
+                    File.Delete(filePath);
+                }
+            }
         }
     }
 }
