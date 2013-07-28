@@ -34,7 +34,7 @@ namespace RecordsCollectorApp
             foreach (var item in directory.GetFiles())
             {
                 string filePath = Server.MapPath("~/Files/" + item.Name);
-                zip.AddFile(filePath, DateTime.Today.ToShortDateString());
+                zip.AddFile(filePath, "records");
             }
 
             Response.Clear();
