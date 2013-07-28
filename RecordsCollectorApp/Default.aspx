@@ -57,7 +57,9 @@
                     </object>
                 </div>
             </div>
+            <form id="form1" runat="server">
             <asp:ListBox ID="ListBox1" runat="server"></asp:ListBox>
+            </form>
         </div>
     </div>
     <!-- Le javascript
