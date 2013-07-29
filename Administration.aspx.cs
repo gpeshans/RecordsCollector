@@ -12,17 +12,14 @@ namespace RecordsCollectorApp
     public partial class Administration : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-            var appDataPath = Server.MapPath(Server.MapPath("~/Files"));
-            if (!Directory.Exists(appDataPath))
-            {
-                Directory.CreateDirectory(appDataPath);
-            }
-
+        {            
             DirectoryInfo directory = new DirectoryInfo(Server.MapPath("~/Files"));
             int counter = 0;
             foreach (FileInfo file in directory.GetFiles())
             {
+				if(file.Name == "default.png")
+					continue;
+					
                 HyperLink link = new HyperLink();
                 link.ID = "Link" + counter++;
                 link.Text = file.Name;
@@ -36,7 +33,7 @@ namespace RecordsCollectorApp
         protected void DownloadButton_Click(object sender, EventArgs e)
         {
             DirectoryInfo directory = new DirectoryInfo(Server.MapPath("~/Files"));
-            if (directory.GetFiles().Length == 0)
+            if (directory.GetFiles().Length == 1)
             {
                 return;
             }
@@ -59,6 +56,9 @@ namespace RecordsCollectorApp
             DirectoryInfo directory = new DirectoryInfo(Server.MapPath("~/Files"));
             foreach (FileInfo file in directory.GetFiles())
             {
+				if(file.Name == "default.png")
+					continue;
+					
                 string filePath = Server.MapPath("~/Files/" + file.Name);
                 if (File.Exists(filePath))
                 {
