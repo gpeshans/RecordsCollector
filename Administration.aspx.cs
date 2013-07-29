@@ -13,6 +13,12 @@ namespace RecordsCollectorApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            var appDataPath = Server.MapPath(Server.MapPath("~/Files"));
+            if (!Directory.Exists(appDataPath))
+            {
+                Directory.CreateDirectory(appDataPath);
+            }
+
             DirectoryInfo directory = new DirectoryInfo(Server.MapPath("~/Files"));
             int counter = 0;
             foreach (FileInfo file in directory.GetFiles())
