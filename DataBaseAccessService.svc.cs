@@ -14,13 +14,13 @@ namespace RecordsCollectorApp
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class DataBaseAccessService
     {
-        DataBase db = new DataBase();        
+        DataBase db = new DataBase();
 
         [OperationContract]
         public NameClass LoadData(string Sex)
         {
             SqlConnection connection = db.Connection();
-            SqlCommand command = db.GetCommand(connection, "dbo.SelectAllNames");           
+            SqlCommand command = db.GetCommand(connection, "dbo.SelectAllNames");
 
             SqlDataAdapter da = new SqlDataAdapter(command);
             DataSet ds = new DataSet();
@@ -55,10 +55,16 @@ namespace RecordsCollectorApp
                 }
             }
 
+            if (ds.Tables["Names"].Rows.Count == 0)
+            {
+                return null;
+            }
+
             NameClass NameObject = new NameClass();
             NameObject.FirstName = ds.Tables["Names"].Rows[OrderNo][0].ToString();
             NameObject.Male = Convert.ToInt16(ds.Tables["Names"].Rows[OrderNo][2].ToString());
             NameObject.Female = Convert.ToInt16(ds.Tables["Names"].Rows[OrderNo][3].ToString());
+
             return NameObject;
         }
 
@@ -70,13 +76,13 @@ namespace RecordsCollectorApp
             int Female = NameObject.Female;
 
             SqlConnection connection = db.Connection();
-            SqlCommand command = db.GetCommand(connection, "dbo.UpdateNames"); 
-  
+            SqlCommand command = db.GetCommand(connection, "dbo.UpdateNames");
+
             command.Parameters.AddWithValue("@Name", FirstName);
             command.Parameters.AddWithValue("@NumOfItems", Male + Female);
             command.Parameters.AddWithValue("@Male", Male);
             command.Parameters.AddWithValue("@Female", Female);
-            
+
             try
             {
                 connection.Open();
@@ -108,5 +114,5 @@ namespace RecordsCollectorApp
         public int Male { get; set; }
         public int Female { get; set; }
     }
-    
+
 }
