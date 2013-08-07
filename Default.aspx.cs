@@ -39,6 +39,8 @@ public partial class _Default : System.Web.UI.Page
 
             cmd.Parameters.AddWithValue("@Name", name);
             cmd.Parameters.AddWithValue("@NumOfItems", number);
+            cmd.Parameters.AddWithValue("@Male", 0);
+            cmd.Parameters.AddWithValue("@Female", 0);
 
             try
             {

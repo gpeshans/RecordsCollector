@@ -83,7 +83,8 @@ namespace RecordsCollectorApp
             {
                 foreach (GridViewRow gvrow in gvDetails.Rows)
                 {
-                    string fileName = gvrow.Cells[1].Text;
+                    string fullName = ((HyperLink)gvrow.Cells[1].Controls[0]).Text;
+                    string fileName = fullName.Split('/')[fullName.Split('/').Length - 1];
                     string filePath = Server.MapPath("~/Files/" + fileName);
                     zip.AddFile(filePath, "files");
                 }
@@ -102,7 +103,7 @@ namespace RecordsCollectorApp
                 CheckBox chk = (CheckBox)gvrow.FindControl("chkSelect");
                 if (chk.Checked)
                 {
-                    string fullName = ((HyperLink)gvrow.Cells[1].Controls[0]).Text; ;
+                    string fullName = ((HyperLink)gvrow.Cells[1].Controls[0]).Text;
                     string fileName = fullName.Split('/')[fullName.Split('/').Length - 1];
                     string filePath = Server.MapPath("~/Files/" + fileName);
                     if (File.Exists(filePath))
