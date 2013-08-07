@@ -10,7 +10,7 @@
 namespace RecordsCollectorApp {
     
     
-    public partial class Administration {
+    public partial class AdminLogin {
         
         /// <summary>
         /// form1 control.
@@ -22,57 +22,57 @@ namespace RecordsCollectorApp {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// gvDetails control.
+        /// Literal2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvDetails;
+        protected global::System.Web.UI.WebControls.Literal Literal2;
         
         /// <summary>
-        /// DownloadButton control.
+        /// txtUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button DownloadButton;
+        protected global::System.Web.UI.WebControls.TextBox txtUsername;
         
         /// <summary>
-        /// DownloadAllButton control.
+        /// Literal1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button DownloadAllButton;
+        protected global::System.Web.UI.WebControls.Literal Literal1;
         
         /// <summary>
-        /// DeleteButton control.
+        /// txtPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button DeleteButton;
+        protected global::System.Web.UI.WebControls.TextBox txtPassword;
         
         /// <summary>
-        /// DeleteAllButton control.
+        /// lblError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button DeleteAllButton;
+        protected global::System.Web.UI.WebControls.Label lblError;
         
         /// <summary>
-        /// ButtonLogOut control.
+        /// btnSubmit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonLogOut;
+        protected global::System.Web.UI.WebControls.Button btnSubmit;
     }
 }

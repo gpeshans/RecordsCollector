@@ -4,9 +4,11 @@ using System;
 using System.Web;
 using System.IO;
 using System.Web.Hosting;
+using System.Web.SessionState;
 using System.Diagnostics;
 
-public class FileUploader : IHttpHandler {
+public class FileUploader : IHttpHandler, IRequiresSessionState
+{
 
     private HttpContext _httpContext;
     private string preSaveExt = "tmp";
@@ -14,13 +16,15 @@ public class FileUploader : IHttpHandler {
     private bool _lastChunk;
     private bool _firstChunk;
     private long _startByte;
-    
+
     StreamWriter _debugFileStreamWriter;
     TextWriterTraceListener _debugListener;
- 
+
     public void ProcessRequest(HttpContext context)
     {
         _httpContext = context;
+
+        fName = _httpContext.Session["fileName"].ToString();
 
         if (context.Request.InputStream.Length == 0)
             throw new ArgumentException("No file input");
@@ -65,7 +69,7 @@ public class FileUploader : IHttpHandler {
 
     private void GetQueryStringParameters()
     {
-        fName = _httpContext.Request.QueryString["file"];
+        //fName = _httpContext.Request.QueryString["file"];        
         _lastChunk = string.IsNullOrEmpty(_httpContext.Request.QueryString["last"]) ? true : bool.Parse(_httpContext.Request.QueryString["last"]);
         _firstChunk = string.IsNullOrEmpty(_httpContext.Request.QueryString["first"]) ? true : bool.Parse(_httpContext.Request.QueryString["first"]);
         _startByte = string.IsNullOrEmpty(_httpContext.Request.QueryString["offset"]) ? 0 : long.Parse(_httpContext.Request.QueryString["offset"]); ;
@@ -81,10 +85,10 @@ public class FileUploader : IHttpHandler {
         }
     }
 
-
-    
-    public bool IsReusable {
-        get {
+    public bool IsReusable
+    {
+        get
+        {
             return false;
         }
     }

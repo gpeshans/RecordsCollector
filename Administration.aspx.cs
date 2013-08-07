@@ -6,49 +6,61 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
 using Ionic.Zip;
+using System.Data;
+using HtmlAgilityPack;
 
 namespace RecordsCollectorApp
 {
     public partial class Administration : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {            
-            DirectoryInfo directory = new DirectoryInfo(Server.MapPath("~/Files"));
-            int counter = 0;
-            foreach (FileInfo file in directory.GetFiles())
+        {
+            if (Session["admin"] == null || Session["pass"] == null)
             {
-				if(file.Name == "default.png")
-					continue;
-					
-                HyperLink link = new HyperLink();
-                link.ID = "Link" + counter++;
-                link.Text = file.Name;
-                link.NavigateUrl = "Download.aspx?name=" + file.Name;
-
-                form1.Controls.Add(link);
-                form1.Controls.Add(new LiteralControl("<br/>"));
+                Response.Redirect("~/AdminLogin.aspx");
             }
+            if (Session["admin"].ToString() != "PEDATeam" && Session["pass"].ToString() != "//webdavclient//")
+            {
+                Response.Redirect("~/AdminLogin.aspx");
+            }
+
+            if (!IsPostBack)
+                BindGridview();
+        }
+
+        protected void BindGridview()
+        {
+            string[] filesPath = Directory.GetFiles(Server.MapPath("~/Files/"));
+            List<ListItem> files = new List<ListItem>();
+            foreach (string path in filesPath)
+            {
+                files.Add(new ListItem("~/Files/" + Path.GetFileName(path)));
+            }
+            gvDetails.DataSource = files;
+            gvDetails.DataBind();
         }
 
         protected void DownloadButton_Click(object sender, EventArgs e)
         {
-            DirectoryInfo directory = new DirectoryInfo(Server.MapPath("~/Files"));
-            if (directory.GetFiles().Length == 1)
+            using (ZipFile zip = new ZipFile())
             {
-                return;
+                foreach (GridViewRow gvrow in gvDetails.Rows)
+                {
+                    CheckBox chk = (CheckBox)gvrow.FindControl("chkSelect");
+                    if (chk.Checked)
+                    {
+                        string fullName = ((HyperLink)gvrow.Cells[1].Controls[0]).Text; ;
+                        string fileName = fullName.Split('/')[fullName.Split('/').Length - 1];
+                        string filePath = Server.MapPath("~/Files/" + fileName);
+                        zip.AddFile(filePath, "files");
+                    }
+                }
+                Response.Clear();
+                Response.AddHeader("Content-Disposition", "attachment; filename=DownloadedSelectedFiles.zip");
+                Response.ContentType = "application/zip";
+                zip.Save(Response.OutputStream);
+                Response.End();
             }
-            ZipFile zip = new ZipFile();
-            foreach (var item in directory.GetFiles())
-            {
-                string filePath = Server.MapPath("~/Files/" + item.Name);
-                zip.AddFile(filePath, "records");
-            }
-
-            Response.Clear();
-            Response.AddHeader("Content-Disposition", "attachment; filename=DownloadedFiles.zip");
-            Response.ContentType = "application/zip";
-            zip.Save(Response.OutputStream);
-            Response.End();
         }
 
         protected void DeleteAllButton_Click(object sender, EventArgs e)
@@ -56,15 +68,57 @@ namespace RecordsCollectorApp
             DirectoryInfo directory = new DirectoryInfo(Server.MapPath("~/Files"));
             foreach (FileInfo file in directory.GetFiles())
             {
-				if(file.Name == "default.png")
-					continue;
-					
                 string filePath = Server.MapPath("~/Files/" + file.Name);
                 if (File.Exists(filePath))
                 {
                     File.Delete(filePath);
                 }
             }
+
+            BindGridview();
+        }
+        protected void DownloadAllButton_Click(object sender, EventArgs e)
+        {
+            using (ZipFile zip = new ZipFile())
+            {
+                foreach (GridViewRow gvrow in gvDetails.Rows)
+                {
+                    string fileName = gvrow.Cells[1].Text;
+                    string filePath = Server.MapPath("~/Files/" + fileName);
+                    zip.AddFile(filePath, "files");
+                }
+                Response.Clear();
+                Response.AddHeader("Content-Disposition", "attachment; filename=DownloadedAllFiles.zip");
+                Response.ContentType = "application/zip";
+                zip.Save(Response.OutputStream);
+                Response.End();
+            }
+        }
+
+        protected void DeleteButton_Click(object sender, EventArgs e)
+        {
+            foreach (GridViewRow gvrow in gvDetails.Rows)
+            {
+                CheckBox chk = (CheckBox)gvrow.FindControl("chkSelect");
+                if (chk.Checked)
+                {
+                    string fullName = ((HyperLink)gvrow.Cells[1].Controls[0]).Text; ;
+                    string fileName = fullName.Split('/')[fullName.Split('/').Length - 1];
+                    string filePath = Server.MapPath("~/Files/" + fileName);
+                    if (File.Exists(filePath))
+                    {
+                        File.Delete(filePath);
+                    }
+                }
+            }
+
+            BindGridview();
+        }
+
+        protected void ButtonLogOut_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("~/AdminLogin.aspx");
         }
     }
 }

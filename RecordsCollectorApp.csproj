@@ -33,11 +33,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.6\lib\Net40\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="Ionic.Zip.Reduced, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\Downloads\Compressed\DotNetZipLib-Runtime-v1.9\zip-v1.9-Reduced\Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -56,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Administration.aspx" />
+    <Content Include="AdminLogin.aspx" />
     <Content Include="ClientBin\slAudioUpload.xap" />
     <Content Include="css\bootstrap-responsive.css" />
     <Content Include="css\bootstrap-responsive.min.css" />
@@ -63,13 +69,20 @@
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\master.css" />
     <Content Include="css\styles.css" />
+    <Content Include="DataBaseAccessService.svc" />
+    <Content Include="data\names_num.txt" />
     <Content Include="Default.aspx" />
     <Content Include="Download.aspx" />
-    <Content Include="Files\12a5652e-5e9e-462b-b64f-2592f793a7ba.wav" />
-    <Content Include="Files\221a9860-e327-487a-9e54-0b730b4d9d2c.wav" />
-    <Content Include="Files\31f8156a-bcbc-4a78-a288-fa77a555fcee.wav" />
-    <Content Include="Files\5fe851a1-fde9-4cab-9796-eef560508936.wav" />
+    <Content Include="Files\00001-GORAN-gp.wav" />
+    <Content Include="Files\32360b1e-baca-436d-a593-c663ea6f1179.wav" />
+    <Content Include="Files\4cbaf739-21db-4cca-9cc6-ca515e1f1fcf.wav" />
+    <Content Include="Files\567e8ce9-77b9-4905-9276-03fdaf1dce5f.wav" />
+    <Content Include="Files\5a85dcb4-f68f-47eb-98a2-95020ae1fa34.wav" />
+    <Content Include="Files\8bc8331d-76bf-4e10-8750-d5939165216b.wav" />
+    <Content Include="Files\a7a838fa-7aea-457c-97f6-d625c603eec9.wav" />
+    <Content Include="Files\c1d00871-a027-43a1-933d-43cd4e81cb31.wav" />
     <Content Include="images\bg-body.jpg" />
+    <Content Include="images\favicon.ico" />
     <Content Include="images\finki-logo-9.png" />
     <Content Include="images\ukim-logo-9.png" />
     <Content Include="img\glyphicons-halflings-white.png" />
@@ -107,6 +120,17 @@
     <Compile Include="Administration.aspx.designer.cs">
       <DependentUpon>Administration.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdminLogin.aspx.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminLogin.aspx.designer.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="classes\DataBase.cs" />
+    <Compile Include="DataBaseAccessService.svc.cs">
+      <DependentUpon>DataBaseAccessService.svc</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -122,9 +146,13 @@
       <DependentUpon>Download.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SilverlightFaultBehavior.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="FileUpload.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -4,3 +4,6 @@ c:\users\pesanski\documents\visual studio 2010\Projects\RecordsCollectorApp\Reco
 c:\users\pesanski\documents\visual studio 2010\Projects\RecordsCollectorApp\RecordsCollectorApp\obj\Debug\RecordsCollectorApp.pdb
 C:\Users\Pesanski\Documents\Visual Studio 2010\Projects\RecordsCollectorApp\RecordsCollectorApp\obj\Debug\RecordsCollectorApp.csprojResolveAssemblyReference.cache
 C:\Users\Pesanski\Documents\Visual Studio 2010\Projects\RecordsCollectorApp\RecordsCollectorApp\bin\Ionic.Zip.Reduced.dll
+C:\Users\Pesanski\documents\visual studio 2010\Projects\RecordsCollectorApp\RecordsCollectorApp\bin\HtmlAgilityPack.dll
+C:\Users\Pesanski\documents\visual studio 2010\Projects\RecordsCollectorApp\RecordsCollectorApp\bin\HtmlAgilityPack.pdb
+C:\Users\Pesanski\documents\visual studio 2010\Projects\RecordsCollectorApp\RecordsCollectorApp\bin\HtmlAgilityPack.xml
