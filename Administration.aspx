@@ -30,7 +30,7 @@
                     <div class="navbar-inner">
                         <div class="container">
                             <ul class="nav">
-                                <li><a>Зачувани снимки </a></li>
+                                <li><a>Зачувани снимки</a></li>
                             </ul>
                         </div>
                     </div>
@@ -74,6 +74,16 @@
                             <div style="float: right; margin: 0 30px;">
                                 <asp:Button ID="DeleteAllButton" runat="server" Text="Delete All" class="btn" OnClick="DeleteAllButton_Click" />
                             </div>
+                        </div>
+                    </div> 
+                    <br />
+                    <br />                   
+                    <div id="num-records" class="row">                    
+                        <div style="float: left;" class="span4">
+                            <asp:Label ID="lblNamesCount" runat="server" Text="Зачувани снимки-имиња: "></asp:Label>
+                        </div>
+                        <div style="float: right;" class="span4">
+                        <asp:Label ID="lblNumbersCount" runat="server" Text="Зачувани снимки-броеви: "></asp:Label>
                         </div>
                     </div>
                     <br />

@@ -8,11 +8,14 @@ using System.IO;
 using Ionic.Zip;
 using System.Data;
 using HtmlAgilityPack;
+using RecordsCollectorApp.ServiceReference1;
 
 namespace RecordsCollectorApp
 {
     public partial class Administration : System.Web.UI.Page
     {
+        DataBaseAccessServiceClient client = new DataBaseAccessServiceClient();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["admin"] == null || Session["pass"] == null)
@@ -25,7 +28,10 @@ namespace RecordsCollectorApp
             }
 
             if (!IsPostBack)
+            {
                 BindGridview();
+                SetRecordCounts();
+            }
         }
 
         protected void BindGridview()
@@ -120,6 +126,12 @@ namespace RecordsCollectorApp
         {
             Session.Abandon();
             Response.Redirect("~/AdminLogin.aspx");
+        }
+
+        protected void SetRecordCounts()
+        {
+            lblNamesCount.Text += client.CountNamesRecords().ToString();
+            lblNumbersCount.Text += client.CountNumbersRecords().ToString();
         }
     }
 }
