@@ -37,7 +37,7 @@ public partial class _Default : System.Web.UI.Page
 
             SqlCommand cmd = db.GetCommand(conn, "dbo.InitialNamesInsert");
 
-            cmd.Parameters.AddWithValue("@Name", name);
+            cmd.Parameters.AddWithValue("@Name", name.ToUpper());
             cmd.Parameters.AddWithValue("@NumOfItems", number);
             cmd.Parameters.AddWithValue("@Male", 0);
             cmd.Parameters.AddWithValue("@Female", 0);
@@ -60,6 +60,52 @@ public partial class _Default : System.Web.UI.Page
         }
 
         file.Close();
+    }
+
+    /// <summary>
+    /// Only for initial insert of the numbers in the database
+    /// </summary>
+    protected void InsertNumbersIntoDatabase()
+    {
+        DataBase db = new DataBase();
+        SqlConnection conn = db.Connection();
+
+        string line;
+        string number = "";       
+
+        StreamReader file = new StreamReader("C:\\Users\\Pesanski\\Documents\\Visual Studio 2010\\Projects\\RecordsCollectorApp\\RecordsCollectorApp\\data\\numbers.txt");
+        while ((line = file.ReadLine()) != null)
+        {
+            string[] pom = line.Split(' ');
+            number = pom[0];            
+
+            conn = db.Connection();
+
+            SqlCommand cmd = db.GetCommand(conn, "dbo.InitialNumbersInsert");
+
+            cmd.Parameters.AddWithValue("@Number", number);        
+            cmd.Parameters.AddWithValue("@Male", 0);
+            cmd.Parameters.AddWithValue("@Female", 0);
+
+            try
+            {
+                conn.Open();
+                int k = cmd.ExecuteNonQuery();
+            }
+            catch (Exception err)
+            {
+                string error = err.Message;
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+
+        }
+
+        file.Close();
+
     }
 
     protected DataSet GetAllNames()

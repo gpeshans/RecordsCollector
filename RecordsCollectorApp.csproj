@@ -71,6 +71,7 @@
     <Content Include="css\styles.css" />
     <Content Include="DataBaseAccessService.svc" />
     <Content Include="data\names_num.txt" />
+    <Content Include="data\numbers.txt" />
     <Content Include="Default.aspx" />
     <Content Include="Download.aspx" />
     <Content Include="Files\00001-GORAN-gp.wav" />
@@ -104,6 +105,8 @@
     <Content Include="js\jquery.js" />
     <Content Include="js\onerror.js" />
     <Content Include="js\Silverlight.js" />
+    <Content Include="Names.aspx" />
+    <Content Include="Numbers.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -144,6 +147,20 @@
     </Compile>
     <Compile Include="Download.aspx.designer.cs">
       <DependentUpon>Download.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Names.aspx.cs">
+      <DependentUpon>Names.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Names.aspx.designer.cs">
+      <DependentUpon>Names.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Numbers.aspx.cs">
+      <DependentUpon>Numbers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Numbers.aspx.designer.cs">
+      <DependentUpon>Numbers.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SilverlightFaultBehavior.cs" />

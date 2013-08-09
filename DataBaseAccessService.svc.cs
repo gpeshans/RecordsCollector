@@ -17,7 +17,7 @@ namespace RecordsCollectorApp
         DataBase db = new DataBase();
 
         [OperationContract]
-        public NameClass LoadData(string Sex)
+        public NameClass LoadNameData(string Sex)
         {
             SqlConnection connection = db.Connection();
             SqlCommand command = db.GetCommand(connection, "dbo.SelectAllNames");
@@ -39,6 +39,11 @@ namespace RecordsCollectorApp
                 connection.Dispose();
             }
 
+            if (ds.Tables["Names"].Rows.Count == 0)
+            {
+                return null;
+            }
+
             int OrderNo = 0;
             if (Sex == "Male")
             {
@@ -55,11 +60,6 @@ namespace RecordsCollectorApp
                 }
             }
 
-            if (ds.Tables["Names"].Rows.Count == 0)
-            {
-                return null;
-            }
-
             NameClass NameObject = new NameClass();
             NameObject.FirstName = ds.Tables["Names"].Rows[OrderNo][0].ToString();
             NameObject.Male = Convert.ToInt16(ds.Tables["Names"].Rows[OrderNo][2].ToString());
@@ -69,17 +69,25 @@ namespace RecordsCollectorApp
         }
 
         [OperationContract]
-        public void Update(NameClass NameObject)
+        public void UpdateNames(NameClass NameObject, string Sex)
         {
             string FirstName = NameObject.FirstName;
             int Male = NameObject.Male;
             int Female = NameObject.Female;
 
+            if (Sex == "Male")
+            {
+                Male++;
+            }
+            else
+            {
+                Female++;
+            }
+
             SqlConnection connection = db.Connection();
             SqlCommand command = db.GetCommand(connection, "dbo.UpdateNames");
 
             command.Parameters.AddWithValue("@Name", FirstName);
-            command.Parameters.AddWithValue("@NumOfItems", Male + Female);
             command.Parameters.AddWithValue("@Male", Male);
             command.Parameters.AddWithValue("@Female", Female);
 
@@ -100,11 +108,158 @@ namespace RecordsCollectorApp
             }
         }
 
-        // Add more operations here and mark them with [OperationContract]
         [OperationContract]
-        public int Count()
+        public NumberClass LoadNumberData(string Sex)
         {
-            return 2;
+            SqlConnection connection = db.Connection();
+            SqlCommand command = db.GetCommand(connection, "dbo.SelectAllNumbers");
+
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            DataSet ds = new DataSet();
+            try
+            {
+                connection.Open();
+                da.Fill(ds, "Numbers");
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err);
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+
+            int OrderNo = 0;
+            if (Sex == "Male")
+            {
+                while (Convert.ToInt16(ds.Tables["Numbers"].Rows[OrderNo][2].ToString()) >= 50)
+                {
+                    OrderNo++;
+                }
+            }
+            else
+            {
+                while (Convert.ToInt16(ds.Tables["Numbers"].Rows[OrderNo][3].ToString()) >= 50)
+                {
+                    OrderNo++;
+                }
+            }
+
+            if (ds.Tables["Numbers"].Rows.Count == 0)
+            {
+                return null;
+            }
+
+            NumberClass NumberObject = new NumberClass();
+            NumberObject.Number = ds.Tables["Numbers"].Rows[OrderNo][0].ToString();
+            NumberObject.Male = Convert.ToInt16(ds.Tables["Numbers"].Rows[OrderNo][2].ToString());
+            NumberObject.Female = Convert.ToInt16(ds.Tables["Numbers"].Rows[OrderNo][3].ToString());
+
+            return NumberObject;
+        }
+
+        [OperationContract]
+        public void UpdateNumbers(NumberClass NumberObject, string Sex)
+        {
+            string Number = NumberObject.Number;
+            int Male = NumberObject.Male;
+            int Female = NumberObject.Female;
+
+            if (Sex == "Male")
+            {
+                Male++;
+            }
+            else
+            {
+                Female++;
+            }
+
+            SqlConnection connection = db.Connection();
+            SqlCommand command = db.GetCommand(connection, "dbo.UpdateNumbers");
+
+            command.Parameters.AddWithValue("@Number", Number);
+            command.Parameters.AddWithValue("@Male", Male);
+            command.Parameters.AddWithValue("@Female", Female);
+
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err);
+            }
+
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+
+        [OperationContract]
+        public int CountNamesRecords()
+        {
+            SqlConnection connection = db.Connection();
+            SqlCommand command = db.GetCommand(connection, "dbo.CountNamesRecords");
+
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            DataSet ds = new DataSet();
+            try
+            {
+                connection.Open();
+                da.Fill(ds, "NamesRecordsCount");
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err);
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+
+            if (ds.Tables["NamesRecordsCount"].Rows.Count == 0)
+            {
+                return 0;
+            }
+
+            return Convert.ToInt16(ds.Tables["NamesRecordsCount"].Rows[0][0].ToString()); ;
+        }
+
+        [OperationContract]
+        public int CountNumbersRecords()
+        {
+            SqlConnection connection = db.Connection();
+            SqlCommand command = db.GetCommand(connection, "dbo.CountNumbersRecords");
+
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            DataSet ds = new DataSet();
+            try
+            {
+                connection.Open();
+                da.Fill(ds, "NumbersRecordsCount");
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err);
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+
+            if (ds.Tables["NumbersRecordsCount"].Rows.Count == 0)
+            {
+                return 0;
+            }
+
+            return Convert.ToInt16(ds.Tables["NumbersRecordsCount"].Rows[0][0].ToString()); ;
         }
     }
 
@@ -115,4 +270,10 @@ namespace RecordsCollectorApp
         public int Female { get; set; }
     }
 
+    public class NumberClass
+    {
+        public string Number { get; set; }
+        public int Male { get; set; }
+        public int Female { get; set; }
+    }
 }
