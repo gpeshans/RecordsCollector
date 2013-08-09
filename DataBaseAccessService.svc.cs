@@ -131,6 +131,11 @@ namespace RecordsCollectorApp
                 connection.Dispose();
             }
 
+            if (ds.Tables["Numbers"].Rows.Count == 0)
+            {
+                return null;
+            }
+
             int OrderNo = 0;
             if (Sex == "Male")
             {
@@ -145,17 +150,12 @@ namespace RecordsCollectorApp
                 {
                     OrderNo++;
                 }
-            }
-
-            if (ds.Tables["Numbers"].Rows.Count == 0)
-            {
-                return null;
-            }
+            }            
 
             NumberClass NumberObject = new NumberClass();
             NumberObject.Number = ds.Tables["Numbers"].Rows[OrderNo][0].ToString();
-            NumberObject.Male = Convert.ToInt16(ds.Tables["Numbers"].Rows[OrderNo][2].ToString());
-            NumberObject.Female = Convert.ToInt16(ds.Tables["Numbers"].Rows[OrderNo][3].ToString());
+            NumberObject.Male = Convert.ToInt16(ds.Tables["Numbers"].Rows[OrderNo][1].ToString());
+            NumberObject.Female = Convert.ToInt16(ds.Tables["Numbers"].Rows[OrderNo][2].ToString());
 
             return NumberObject;
         }
