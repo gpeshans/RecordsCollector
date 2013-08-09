@@ -22,9 +22,7 @@ public class FileUploader : IHttpHandler, IRequiresSessionState
 
     public void ProcessRequest(HttpContext context)
     {
-        _httpContext = context;
-
-        fName = _httpContext.Session["fileName"].ToString();
+        _httpContext = context;       
 
         if (context.Request.InputStream.Length == 0)
             throw new ArgumentException("No file input");
@@ -69,7 +67,7 @@ public class FileUploader : IHttpHandler, IRequiresSessionState
 
     private void GetQueryStringParameters()
     {
-        //fName = _httpContext.Request.QueryString["file"];        
+        fName = _httpContext.Request.QueryString["file"];        
         _lastChunk = string.IsNullOrEmpty(_httpContext.Request.QueryString["last"]) ? true : bool.Parse(_httpContext.Request.QueryString["last"]);
         _firstChunk = string.IsNullOrEmpty(_httpContext.Request.QueryString["first"]) ? true : bool.Parse(_httpContext.Request.QueryString["first"]);
         _startByte = string.IsNullOrEmpty(_httpContext.Request.QueryString["offset"]) ? 0 : long.Parse(_httpContext.Request.QueryString["offset"]); ;
