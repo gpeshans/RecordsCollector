@@ -45,7 +45,7 @@
                 <div id="silverlightControlHost">
                     <object data="data:application/x-silverlight-2," type="application/x-silverlight-2"
                         width="525" height="120">
-                        <param name="source" value="ClientBin/recordNames.xap" />
+                        <param name="source" value="ClientBin/recordNames2.xap" />
                         <param name="onError" value="onSilverlightError" />
                         <param name="background" value="white" />
                         <param name="minRuntimeVersion" value="4.0.50401.0" />

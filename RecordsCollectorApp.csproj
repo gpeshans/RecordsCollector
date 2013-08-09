@@ -62,7 +62,7 @@
   <ItemGroup>
     <Content Include="Administration.aspx" />
     <Content Include="AdminLogin.aspx" />
-    <Content Include="ClientBin\recordNames.xap" />
+    <Content Include="ClientBin\recordNames2.xap" />
     <Content Include="ClientBin\recordNumbers.xap" />
     <Content Include="ClientBin\slAudioUpload.xap" />
     <Content Include="css\bootstrap-responsive.css" />
@@ -76,8 +76,6 @@
     <Content Include="data\numbers.txt" />
     <Content Include="Default.aspx" />
     <Content Include="Download.aspx" />
-    <Content Include="Files\00001-GORAN-gp.wav" />
-    <Content Include="Files\32360b1e-baca-436d-a593-c663ea6f1179.wav" />
     <Content Include="Files\4cbaf739-21db-4cca-9cc6-ca515e1f1fcf.wav" />
     <Content Include="Files\567e8ce9-77b9-4905-9276-03fdaf1dce5f.wav" />
     <Content Include="Files\5a85dcb4-f68f-47eb-98a2-95020ae1fa34.wav" />
