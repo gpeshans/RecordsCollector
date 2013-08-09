@@ -44,7 +44,7 @@
                 <div id="silverlightControlHost" style="background: #E0E1E3;">
                     <object data="data:application/x-silverlight-2," type="application/x-silverlight-2"
                         width="500px" height="250px">
-                        <param name="source" value="ClientBin/slAudioUpload.xap" />
+                        <param name="source" value="ClientBin/recordNames2.xap" />
                         <param name="onError" value="onSilverlightError" />
                         <param name="background" value="#E0E1E3" />
                         <param name="minRuntimeVersion" value="4.0.50401.0" />
