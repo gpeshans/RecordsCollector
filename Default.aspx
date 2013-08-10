@@ -62,18 +62,17 @@
                     кои кои ќе ви се прикажат на екранот.
                     <br />
                     Дополнително, овде е поставено и видео на кое е прикажан целиот процес на снимање
-                    и зачувување на снимките. Ви препорачуваме да користите Internet Explorer. Ако не
-                    сте сигурни како се користи системот, Ве молиме контактирајте не на peda.team@gmail.com.
+                    и зачувување на снимките. Ако не сте сигурни како се користи системот, Ве молиме
+                    контактирајте не на peda.team@gmail.com.
                     <br />
                     <br />
-                    Благодариме на разбирањето,
+                    Ви благодариме на разбирањето,
                     <br />
                     Горан и Даниел.
                 </p>
             </div>
             <div class="span4">
-                <iframe width="500" height="300" src="http://www.youtube.com/embed/xgKjp1pq7iI?feature=player_detailpage"
-                    frameborder="0" allowfullscreen></iframe>
+                <iframe width="500" height="300" src="http://www.youtube.com/embed/FoPdYAnjxOc?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </div>
