@@ -41,7 +41,7 @@
         </div>
         <div class="main-content">
             <div id="main">
-                <div id="silverlightControlHost" style="background: #E0E1E3;">
+                <div id="silverlightControlHost" style="background: transparent;">
                     <object data="data:application/x-silverlight-2," type="application/x-silverlight-2"
                         width="500px" height="250px">
                         <param name="source" value="ClientBin/recordNames.xap" />

@@ -120,16 +120,18 @@ namespace RecordsCollectorApp
         public void UpdateNames(NameClass NameObject, string Sex)
         {
             string FirstName = NameObject.FirstName;
-            int Male = NameObject.Male;
-            int Female = NameObject.Female;
+            int Male = 0;
+            int Female = 0;
 
             if (Sex == "Male")
             {
-                Male++;
+                Male = 1;
+                Female = 0;
             }
             else
             {
-                Female++;
+                Male = 0;
+                Female = 1;
             }
 
             SqlConnection connection = db.Connection();
@@ -291,16 +293,18 @@ namespace RecordsCollectorApp
         public void UpdateNumbers(NumberClass NumberObject, string Sex)
         {
             string Number = NumberObject.Number;
-            int Male = NumberObject.Male;
-            int Female = NumberObject.Female;
+            int Male = 0;
+            int Female = 0;
 
             if (Sex == "Male")
             {
-                Male++;
+                Male = 1;
+                Female = 0;
             }
             else
             {
-                Female++;
+                Male = 0;
+                Female = 1;
             }
 
             SqlConnection connection = db.Connection();
