@@ -87,7 +87,7 @@ public class FileUploader : IHttpHandler, IRequiresSessionState
     {
         get
         {
-            return false;
+            return true;
         }
     }
 
