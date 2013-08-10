@@ -63,7 +63,6 @@
     <Content Include="Administration.aspx" />
     <Content Include="AdminLogin.aspx" />
     <Content Include="ClientBin\recordNames.xap" />
-    <Content Include="ClientBin\recordNames2.xap" />
     <Content Include="ClientBin\recordNumbers.xap" />
     <Content Include="ClientBin\slAudioUpload.xap" />
     <Content Include="css\bootstrap-responsive.css" />
