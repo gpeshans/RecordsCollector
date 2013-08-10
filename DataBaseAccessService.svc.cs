@@ -220,14 +220,14 @@ namespace RecordsCollectorApp
             int OrderNo = 0;
             if (Sex == "Male")
             {
-                while (Convert.ToInt16(ds.Tables["Numbers"].Rows[OrderNo][2].ToString()) >= 50)
+                while (Convert.ToInt16(ds.Tables["Numbers"].Rows[OrderNo][1].ToString()) >= 50)
                 {
                     OrderNo++;
                 }
             }
             else
             {
-                while (Convert.ToInt16(ds.Tables["Numbers"].Rows[OrderNo][3].ToString()) >= 50)
+                while (Convert.ToInt16(ds.Tables["Numbers"].Rows[OrderNo][2].ToString()) >= 50)
                 {
                     OrderNo++;
                 }
