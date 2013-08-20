@@ -1,6 +1,5 @@
 C:\Users\Pesanski\Documents\Visual Studio 2010\Projects\RecordsCollectorApp\RecordsCollectorApp\bin\RecordsCollectorApp.dll
 C:\Users\Pesanski\Documents\Visual Studio 2010\Projects\RecordsCollectorApp\RecordsCollectorApp\bin\RecordsCollectorApp.pdb
-C:\Users\Pesanski\Documents\Visual Studio 2010\Projects\RecordsCollectorApp\RecordsCollectorApp\bin\Ionic.Zip.Reduced.dll
 C:\Users\Pesanski\Documents\Visual Studio 2010\Projects\RecordsCollectorApp\RecordsCollectorApp\obj\Release\RecordsCollectorApp.dll
 C:\Users\Pesanski\Documents\Visual Studio 2010\Projects\RecordsCollectorApp\RecordsCollectorApp\obj\Release\RecordsCollectorApp.pdb
 C:\Users\Pesanski\Documents\Visual Studio 2010\Projects\RecordsCollectorApp\RecordsCollectorApp\bin\HtmlAgilityPack.dll

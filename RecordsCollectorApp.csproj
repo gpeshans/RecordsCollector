@@ -76,11 +76,6 @@
     <Content Include="Default.aspx" />
     <Content Include="Download.aspx" />
     <Content Include="Files\4cbaf739-21db-4cca-9cc6-ca515e1f1fcf.wav" />
-    <Content Include="Files\567e8ce9-77b9-4905-9276-03fdaf1dce5f.wav" />
-    <Content Include="Files\5a85dcb4-f68f-47eb-98a2-95020ae1fa34.wav" />
-    <Content Include="Files\8bc8331d-76bf-4e10-8750-d5939165216b.wav" />
-    <Content Include="Files\a7a838fa-7aea-457c-97f6-d625c603eec9.wav" />
-    <Content Include="Files\c1d00871-a027-43a1-933d-43cd4e81cb31.wav" />
     <Content Include="images\bg-body.jpg" />
     <Content Include="images\favicon.ico" />
     <Content Include="images\finki-logo-9.png" />
